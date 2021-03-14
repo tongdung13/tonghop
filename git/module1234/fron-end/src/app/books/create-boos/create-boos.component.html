@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1 style="margin-left: 33%;">Thêm Sách Mới</h1>
+    </div>
+    <form>
+      <div class="form-group">
+        <label>Tên Sách</label>
+        <input type="text" name="title" class="form-control" [(ngModel)]="books.title">
+      </div>
+      <div class="form-group">
+        <label>Tên Tác Giả</label>
+        <input type="text" name="title" class="form-control" [(ngModel)]="books.author">
+      </div>
+      <div class="form-group">
+        <label>Mô Tả</label>
+        <textarea class="form-control" name="description" [(ngModel)]="books.description"></textarea>
+      </div>
+      <div class="group">
+        <button (click)="addBooks()" routerLink="" class="btn btn-sm btn-primary">Thêm Mới</button>
+        <button routerLink="" class="btn btn-sm btn-success" style="margin-left: 1%;">Quay Lại</button>
+      </div>
+    </form>
+  </div>
+</div>

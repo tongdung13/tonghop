@@ -1,0 +1,48 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div>
+    <a class="btn btn-sm btn-outline-primary" routerLink="">Product</a>
+    <a class="btn btn-sm btn-outline-primary" routerLink="/create" style="margin-left: 9px;">Add</a>
+    <a class="btn btn-sm btn-outline-success" routerLink="/login" style="margin-left: 9px;">Login</a>
+    <a routerLink="/layout" style="margin-left: 9px;">Layout</a>
+  </div>
+
+
+  <form>
+    <input type="text" class="form-control" name="search" [(ngModel)]="filter" placeholder="search">
+  </form>
+
+
+</nav>
+<hr>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products | filter:filter | paginate: { itemsPerPage: 5, currentPage: p };">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.position }}</td>
+        <td>{{ product.office }}</td>
+        <td>{{ product.age }}</td>
+        <td>{{ product.startDate }}</td>
+        <td>
+          <a class="btn btn-sm btn-outline-warning" routerLink="/edit/{{ product.id }}">Update</a>
+          <a class="btn btn-sm btn-outline-danger" (click)="clickDelete(product.id)" style="margin-left: 9px;">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event" style="margin-left: 100px;"></pagination-controls>
+</div>
+
+

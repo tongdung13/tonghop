@@ -1,0 +1,20 @@
+<div class="container">
+  <div>
+    <h2 style="margin-left: 40%;">Xóa Sách</h2>
+  </div>
+  <hr/>
+  <div *ngIf="books">
+    <div>
+      <label><b>Tên Sách :</b></label> {{ books.title }}
+    </div>
+    <div>
+      <label><b>Tên Tác Giả :</b></label> {{ books.author }}
+    </div>
+    <div>
+      <label><b>Mô Tả :</b></label> {{ books.description }}
+    </div>
+  </div>
+<button (click)="deleteBooks(books.id)" class="btn btn-sm btn-danger"  routerLink="">Xóa Sách</button>
+<button routerLink="" class="btn btn-sm btn-success" style="margin-left: 2%;">Quay Lại</button>
+</div>
+

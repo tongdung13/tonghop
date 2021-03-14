@@ -1,0 +1,44 @@
+
+<hr>
+<div>
+  <form>
+  <input type="text" style="margin-left: 790px;" name="search" [(ngModel)]="filter" placeholder="search">
+</form>
+</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Age</th>
+        <th>Start Date</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 5, currentPage: p }; let i = index" [attr.data-index]="i">
+        <td>{{ i }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.position }}</td>
+        <td>{{ product.office }}</td>
+        <td>{{ product.age }}</td>
+        <td>{{ product.startDate }}</td>
+        <td>
+          <img [src]="product.image" alt="" style="width: 100px;">
+        </td>
+        <td>
+          <a class="btn btn-sm btn-outline-warning" routerLink="/edit/{{ product.id }}">Update</a>
+          <a class="btn btn-sm btn-outline-danger" (click)="clickDelete(product.id)" style="margin-left: 9px;">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event" style="margin-left: 100px;"></pagination-controls>
+</div>
+
+

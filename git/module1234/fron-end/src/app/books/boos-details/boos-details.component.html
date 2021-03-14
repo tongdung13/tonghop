@@ -1,0 +1,18 @@
+<div class="container">
+  <div>
+    <h2>Chi Tiết Sách</h2>
+    <button routerLink="" class="btn btn-sm btn-primary" style="margin-left: 990px;">Xem Danh Sách</button>
+  </div>
+  <hr/>
+  <div *ngIf="books">
+    <div>
+      <label><b>Tên Sách :</b></label> {{ books.title }}
+    </div>
+    <div>
+      <label><b>Tên Tác Giả :</b></label> {{ books.author }}
+    </div>
+    <div>
+      <label><b>Mô Tả :</b></label> {{ books.description }}
+    </div>
+  </div>
+</div>
